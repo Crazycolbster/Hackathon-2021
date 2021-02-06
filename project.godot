@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Topdown Shooter"
+config/name="Hackathon 2021"
 run/main_scene="res://UI/PlayAgain.tscn"
 config/icon="res://icon.png"
 
