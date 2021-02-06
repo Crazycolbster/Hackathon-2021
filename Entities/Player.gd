@@ -41,6 +41,8 @@ func _physics_process(_delta):
 	# Handle weapon firing
 	if Input.is_action_just_pressed("mouse_left"):
 		fire()
+	if Input.is_action_pressed("mouse_right"):
+		fire()
 
 
 func death():
