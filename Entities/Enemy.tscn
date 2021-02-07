@@ -1,14 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Assets/square.png" type="Texture" id=1]
+[ext_resource path="res://Assets/fire4.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Assets/light.png" type="Texture" id=3]
 [ext_resource path="res://Entities/Light2D.gd" type="Script" id=4]
+[ext_resource path="res://Assets/fire10.png" type="Texture" id=5]
+[ext_resource path="res://Assets/fire5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/fire9.png" type="Texture" id=7]
+[ext_resource path="res://Assets/fire7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/fire6.png" type="Texture" id=9]
+[ext_resource path="res://Assets/fire1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/fire2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/fire8.png" type="Texture" id=12]
+[ext_resource path="res://Assets/fire3.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.40896, 6.37206 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.2, 7.2 )
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -19,17 +36,18 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.290196, 0.0862745, 0.0862745, 1 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 1 )
+frames = SubResource( 2 )
+frame = 9
+playing = true
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="PathingTimer" type="Timer" parent="."]
 one_shot = true
