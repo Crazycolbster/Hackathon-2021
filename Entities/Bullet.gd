@@ -10,6 +10,7 @@ onready var timer = $DespawnTimer
 func initialize(new_position, new_rotation):
 	position = new_position
 	rotation_degrees = new_rotation
+	
 
 
 func _ready():

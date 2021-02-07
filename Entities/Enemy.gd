@@ -30,14 +30,14 @@ func _physics_process(delta):
 		return
 
 	var distance_to_destination = position.distance_to(path[0])
-
-	if distance_to_destination > distance_check:
-		pass
-		#look_at(path[0]) # Works for zombies, if fire actually looks at you, you're either dreaming, or posessed.
-		#position = position.linear_interpolate(path[0], (speed * delta) / distance_to_destination)
-		#var _motion = move_and_slide(Vector2.ZERO) #Fire will book a flight to find you and kill you
-	else:
-		path.remove(0)
+	if HP <= 0:
+		if distance_to_destination > distance_check:
+			pass
+			#look_at(path[0]) # Works for zombies, if fire actually looks at you, you're either dreaming, or posessed.
+			#position = position.linear_interpolate(path[0], (speed * delta) / distance_to_destination)
+			#var _motion = move_and_slide(Vector2.ZERO) #Fire will book a flight to find you and kill you
+		else:
+			path.remove(0)
 
 
 
