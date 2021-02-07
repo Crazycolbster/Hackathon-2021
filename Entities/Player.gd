@@ -16,7 +16,7 @@ var velocity = Vector2.ZERO
 var bullet = preload("res://Entities/Bullet.tscn")
 
 #extinguisher preload
-var ext = preload("res://foam.tscn")
+var ext = preload("res://Entities/foam.tscn")
 
 # End game preload
 var endgame = preload("res://UI/PlayAgain.tscn")
@@ -91,9 +91,3 @@ func _on_HitBox_body_entered(_body):
 # Force a refresh on a set interval to catch slow or missed updates (Only seen on the web)
 func _on_RefreshTimer_timeout():
 	enemy_killed()
-	
-
-
-	
-
-
