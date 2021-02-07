@@ -7,6 +7,8 @@ export var SPEED = 200
 
 onready var timer = $RefreshTimer
 
+var water_speed = 300
+var water = preload("res://Entities/Bullet.tscn")
 var velocity = Vector2.ZERO
 
 # Bullet preload
@@ -33,16 +35,15 @@ func _physics_process(_delta):
 
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * SPEED, ACCELERATION)
+		$Sprite.play("test")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
-
+		$Sprite.stop()
 	velocity = move_and_slide(velocity)
 
 	# Handle weapon firing
-	if Input.is_action_just_pressed("mouse_left"):
-		fire()
-	if Input.is_action_pressed("mouse_right"):
-		fire()
+	if Input.is_action_pressed("LMB"): #water hose
+		hose()
 
 
 func death():
@@ -55,10 +56,12 @@ func enemy_killed():
 		load_endgame("Won")
 
 
-func fire():
-	var bullet_instance = bullet.instance()
-	bullet_instance.initialize(get_global_position(), rotation_degrees)
-	get_parent().add_child(bullet_instance)
+func hose():
+	var water_instance = water.instance()
+	water_instance.position = get_global_position()
+	water_instance.rotation_degrees = rotation_degrees
+	water_instance.apply_impulse(Vector2 (), Vector2(water_speed,0).rotated(rotation + rand_range(-1.1,1.1)))
+	get_tree().get_root().call_deferred("add_child", water_instance)
 
 
 func load_endgame(status):
@@ -75,3 +78,9 @@ func _on_HitBox_body_entered(_body):
 # Force a refresh on a set interval to catch slow or missed updates (Only seen on the web)
 func _on_RefreshTimer_timeout():
 	enemy_killed()
+	
+
+
+	
+
+
