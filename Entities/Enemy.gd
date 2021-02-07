@@ -5,6 +5,7 @@ export var acceleration = 30
 export var distance_check = 5
 export var speed = 100
 
+
 onready var navigation = get_tree().get_root().find_node("Navigation2D", true, false)
 onready var path_timer = $PathingTimer
 
@@ -30,6 +31,7 @@ func _physics_process(delta):
 		var _motion = move_and_slide(Vector2.ZERO)
 	else:
 		path.remove(0)
+
 
 
 func _on_HitBox_body_entered(_body):
