@@ -8,11 +8,15 @@ export var SPEED = 200
 onready var timer = $RefreshTimer
 
 var water_speed = 300
+var foam_speed = 50
 var water = preload("res://Entities/Bullet.tscn")
 var velocity = Vector2.ZERO
 
 # Bullet preload
 var bullet = preload("res://Entities/Bullet.tscn")
+
+#extinguisher preload
+var ext = preload("res://foam.tscn")
 
 # End game preload
 var endgame = preload("res://UI/PlayAgain.tscn")
@@ -44,6 +48,8 @@ func _physics_process(_delta):
 	# Handle weapon firing
 	if Input.is_action_pressed("LMB"): #water hose
 		hose()
+	if Input.is_action_pressed("RMB"): #water hose
+		extinguisher()
 
 
 func death():
@@ -62,6 +68,13 @@ func hose():
 	water_instance.rotation_degrees = rotation_degrees
 	water_instance.apply_impulse(Vector2 (), Vector2(water_speed,0).rotated(rotation + rand_range(-1.1,1.1)))
 	get_tree().get_root().call_deferred("add_child", water_instance)
+	
+func extinguisher():
+	var ext_instance = ext.instance()
+	ext_instance.position = get_global_position()
+	ext_instance.rotation_degrees = rotation_degrees
+	ext_instance.apply_impulse(Vector2 (), Vector2(foam_speed,0).rotated(rotation + rand_range(-1.1,1.1)))
+	get_tree().get_root().call_deferred("add_child", ext_instance)
 
 
 func load_endgame(status):
