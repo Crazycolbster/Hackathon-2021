@@ -1,11 +1,11 @@
 extends Light2D
-var rng = RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new()#Allows random numbers
 
 func _physics_process(delta):
-	rng.randomize()
-	var flicker = rng.randi_range(0,10)
+	rng.randomize()#Random seed for each fire
+	var flicker = rng.randi_range(0,10)#Random check to have fire flicker
 	if flicker == 10:
-		energy = rng.randf()
+		energy = rng.randf()#Random brightness level when flickering
 
 
 # Called when the node enters the scene tree for the first time.
