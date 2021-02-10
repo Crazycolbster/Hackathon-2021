@@ -4,7 +4,6 @@ extends RigidBody2D
 export var SPEED = 20
 export var DESPAWN = .5
 
-
 onready var animation = $AnimationPlayer
 onready var timer = $DespawnTimer
 
@@ -14,7 +13,6 @@ func initialize(new_position, new_rotation):
 
 
 func _ready():
-	friction = 0
 	set_contact_monitor(true)
 	set_max_contacts_reported(3)
 	apply_impulse(Vector2(), Vector2(SPEED,0).rotated(rotation))

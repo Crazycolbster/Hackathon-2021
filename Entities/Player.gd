@@ -12,8 +12,6 @@ var foam_speed = 50
 var water = preload("res://Entities/Bullet.tscn")
 var velocity = Vector2.ZERO
 
-# Bullet preload
-var bullet = preload("res://Entities/Bullet.tscn")
 
 #extinguisher preload
 var ext = preload("res://Entities/foam.tscn")
