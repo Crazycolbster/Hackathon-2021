@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/square.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.30055, 2.16901 )
+extents = Vector2( 3.747, 2.98022 )
 
 [node name="foam" type="RigidBody2D"]
 mass = 0.00102041

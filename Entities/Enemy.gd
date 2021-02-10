@@ -11,6 +11,7 @@ var HP = 50 #50 strikes from water
 onready var navigation = get_tree().get_root().find_node("Navigation2D", true, false)
 onready var path_timer = $PathingTimer
 
+var _foam = preload("res://Entities/foam.tscn")
 var explosion = preload("res://Entities/Explosion.tscn")
 var path #A list that holds... something?
 var velocity = Vector2.ZERO
@@ -59,3 +60,15 @@ func _on_PathingTimer_timeout():
 func make_path():
 	var player = get_tree().get_root().find_node("Player", true, false)
 	path = navigation.get_simple_path(position, player.position, false)
+
+
+func _on_other_one_body_entered(body):
+	HP -= 40
+	if HP <= 0:
+		var explosion_instance = explosion.instance()
+		explosion_instance.position = global_position
+		explosion_instance.emitting = true
+		get_tree().get_root().find_node("Effects", true, false).add_child(explosion_instance)
+		queue_free()
+#	if "foam" in body.name:
+#		queue_free()

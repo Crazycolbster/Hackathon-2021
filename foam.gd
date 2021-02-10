@@ -34,3 +34,8 @@ func _on_DespawnTimer_timeout():
 
 func _on_despawn_timer_timeout():
 	queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if "foam" in body.name:
+		queue_free()
