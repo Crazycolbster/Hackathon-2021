@@ -2,9 +2,9 @@ extends Control
 
 func initialize(status):
 	if status == "Won":
-		$VBoxContainer/Label.text = "Victory is yours.  Today."
+		$VBoxContainer/Label.text = "Be cool about fire safety!"
 	else:
-		$VBoxContainer/Label.text = "Death comes for us all."
+		$VBoxContainer/Label.text = "Smoke Jumper Hero"
 
 
 func _on_Button_pressed():

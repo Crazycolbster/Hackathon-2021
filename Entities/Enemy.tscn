@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
-frame = 8
+frame = 4
 playing = true
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -58,6 +58,7 @@ one_shot = true
 texture = ExtResource( 3 )
 texture_scale = 0.15
 color = Color( 0.87451, 0.384314, 0.0901961, 1 )
+shadow_enabled = true
 script = ExtResource( 4 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="PathingTimer" to="." method="_on_PathingTimer_timeout"]

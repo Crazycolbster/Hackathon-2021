@@ -92,18 +92,18 @@ rect_min_size = Vector2( 0, 30 )
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 34.0
 margin_right = 652.0
-margin_bottom = 384.0
+margin_bottom = 394.0
 rect_min_size = Vector2( 650, 350 )
 custom_fonts/font = SubResource( 1 )
-text = "Firefighter fury"
+text = "Smoke Jumper Hero"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 388.0
+margin_top = 398.0
 margin_right = 652.0
-margin_bottom = 438.0
+margin_bottom = 448.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )

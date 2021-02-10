@@ -3,23 +3,23 @@
 [ext_resource path="res://Entities/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://Assets/whitePuff00.png" type="Texture" id=2]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0836237, 0.508711, 1 )
 colors = PoolColorArray( 0.303711, 0.303711, 0.303711, 1, 0.358398, 0.321999, 0.321999, 1, 0.401367, 0.401367, 0.401367, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0.0193548, 0.188636 ), 0.0, 0.0, 0, 0, Vector2( 0.970968, 0.879545 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=4]
 width = 2050
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 lifetime_randomness = 1.0
-trail_size_modifier = SubResource( 5 )
+trail_size_modifier = SubResource( 4 )
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_align_y = true
@@ -41,7 +41,7 @@ angle = 26.5
 angle_random = 1.0
 scale = 6.0
 scale_random = 0.4
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 2 )
 
 [node name="Explosion" type="Particles2D"]
 scale = Vector2( 0.025, 0.025 )
@@ -52,6 +52,6 @@ one_shot = true
 speed_scale = 10.0
 explosiveness = 1.0
 randomness = 0.4
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
